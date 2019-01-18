@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Gašper",
+    "lastname": "Vidmar",
+    "birthdate": "1987-14-09",
+    "height": "210",
+    "weight": "114",
+    "club": "Banvit, Turkey"
+  },
+  {
+    "name": "Jusuf",
+    "lastname": "Nurkić",
+    "birthdate": "1994-23-08",
+    "height": "211",
+    "weight": "127",
+    "club": "Portland Trail Blazers, USA"
+  },
+  {
+    "name": "Luka",
+    "lastname": "Dončić",
+    "birthdate": "1999-28-02",
+    "height": "201",
+    "weight": "99",
+    "club": "Dallas Mavericks, USA"
+  },
+  {
+    "name": "Bogdan",
+    "lastname": "Bogdanović",
+    "birthdate": "1992-18-08",
+    "height": "198",
+    "weight": "93",
+    "club": "Sacramento Kings, USA"
+  },
+  {
+    "name": "Goran",
+    "lastname": "Dragić",
+    "birthdate": "1986-06-05",
+    "height": "191",
+    "weight": "85",
+    "club": "Miami Heat, USA"
+  },
+  {
+    "name": "Boban",
+    "lastname": "Marjanović",
+    "birthdate": "1988-15-08",
+    "height": "222",
+    "weight": "132",
+    "club": "Los Angeles Clippers, USA"
+  },
+  {
+    "name": "Dario",
+    "lastname": "Šarić",
+    "birthdate": "1994-08-04",
+    "height": "208",
+    "weight": "101",
+    "club": "Minnesota Timberwolves, USA"
+  },
+  {
+    "name": "Anthony",
+    "lastname": "Randolph",
+    "birthdate": "1989-15-07",
+    "height": "211",
+    "weight": "104",
+    "club": "Real Madrid, Spain"
+  },
+  {
+    "name": "Mario",
+    "lastname": "Hezonja",
+    "birthdate": "1995-25-02",
+    "height": "203",
+    "weight": "102",
+    "club": "New York Knicks, USA"
+  },
+  {
+    "name": "Miloš",
+    "lastname": "Teodošić",
+    "birthdate": "1987-19-03",
+    "height": "196",
+    "weight": "88",
+    "club": "Los Angeles Clippers, USA"
+  },
+  {
+    "name": "Nikola",
+    "lastname": "Jokić",
+    "birthdate": "1995-19-02",
+    "height": "213",
+    "weight": "113",
+    "club": "Denver Nuggets, USA"
+  },
+  {
+    "name": "Roko",
+    "lastname": "Ukić",
+    "birthdate": "1984-05-12",
+    "height": "196",
+    "weight": "86",
+    "club": "Levallois Metropolitans, France"
+  }
+]
