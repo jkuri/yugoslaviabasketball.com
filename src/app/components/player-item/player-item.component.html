@@ -1,0 +1,25 @@
+<div class="table-item">
+  <div class="columns">
+    <div class="column is-2 justify-center">
+      <span class="table-data">{{ player?.name }}</span>
+    </div>
+    <div class="column is-2 justify-center">
+      <span class="table-data">{{ player?.lastname }}</span>
+    </div>
+    <div class="column is-2 justify-center">
+      <span class="table-data">{{ player?.birthdate | date }}</span>
+    </div>
+    <div class="column is-1 justify-center">
+      <span class="table-data">{{ player?.getAge() }}</span>
+    </div>
+    <div class="column is-1 justify-center">
+      <span class="table-data">{{ player?.height }}cm</span>
+    </div>
+    <div class="column is-1 justify-center">
+      <span class="table-data">{{ player?.weight }}kg</span>
+    </div>
+    <div class="column is-3 justify-center">
+      <span class="table-data">{{ player?.club }}</span>
+    </div>
+  </div>
+</div>
