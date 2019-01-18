@@ -7,7 +7,8 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 import * as express from 'express';
-import { join } from 'path';
+import { join, resolve } from 'path';
+import { readFile } from 'fs';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -40,6 +41,16 @@ app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
   maxAge: '1y'
 }));
 
+app.get('/api/players', (req, res) => {
+  fetchPlayers()
+    .then(data => {
+      return res.json(JSON.parse(data));
+    })
+    .catch(err => {
+      return res.json({ error: err });
+    });
+});
+
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
   res.render('index', { req });
@@ -49,3 +60,15 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Node Express server listening on http://localhost:${PORT}`);
 });
+
+function fetchPlayers(): Promise<any> {
+  return new Promise((res, reject) => {
+    readFile(resolve(DIST_FOLDER, '..', 'players.json'), (err: NodeJS.ErrnoException, data: Buffer) => {
+      if (err) {
+        reject(err);
+      } else {
+        res(data.toString());
+      }
+    });
+  });
+}
