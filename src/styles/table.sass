@@ -12,6 +12,9 @@ $table-item-height: 50px
     box-shadow: 0 1px 0 0 #EAECEE
     height: 44px
 
+    +mobile
+      display: none
+
     .columns
       margin: 0
 
@@ -35,6 +38,12 @@ $table-item-height: 50px
     line-height: 22px
     font-size: 14px
     box-shadow: 0 1px 0 0 #EAEDF3
+
+    +mobile
+      height: auto
+      border-top: 1px solid #EAEDF3
+      margin-bottom: 20px
+      padding: 10px 0
 
     .columns
       margin: 0
@@ -112,3 +121,9 @@ $table-item-height: 50px
           img
             display: block
             height: 32px
+
+          +mobile
+            height: 50px
+
+            img
+              height: 50px
