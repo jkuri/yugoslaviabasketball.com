@@ -17,6 +17,9 @@
       <span class="table-data">{{ player?.lastname }}</span>
     </div>
     <div class="column is-1 justify-center">
+      <span class="table-data is-number is-orange">{{ player?.position }}</span>
+    </div>
+    <div class="column is-2 justify-center">
       <span class="table-data">{{ player?.birthdate | date }}</span>
     </div>
     <div class="column is-1 justify-center">
@@ -27,9 +30,6 @@
     </div>
     <div class="column is-1 justify-center">
       <span class="table-data">{{ player?.weight }}kg</span>
-    </div>
-    <div class="column is-2 justify-center">
-      <span class="table-data">{{ player?.club }}</span>
     </div>
   </div>
 </div>

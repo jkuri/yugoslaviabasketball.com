@@ -7,6 +7,17 @@
       </div>
       <hr class="mb20" />
     </div>
+    <div class="column is-9"></div>
+    <div class="column is-3">
+      <div class="coach-item">
+        <span class="title">Coach</span>
+        <span class="name">Gregg Popovich</span>
+      </div>
+      <div class="coach-item">
+        <span class="title">Coach Assistant</span>
+        <span class="name">Peja Stojaković</span>
+      </div>
+    </div>
     <div class="column is-12">
       <div class="table">
         <div class="headers">
@@ -28,6 +39,11 @@
               <span class="header-title" (click)="sortPlayers('lastname')">Lastname</span>
             </div>
             <div class="column is-1 justify-center">
+              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'position'"></i>
+              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'position'"></i>
+              <span class="header-title" (click)="sortPlayers('position')">Position</span>
+            </div>
+            <div class="column is-2 justify-center">
               <span class="header-title" (click)="sortPlayers('birthdate')">
                 <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'birthdate'"></i>
                 <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'birthdate'"></i>
@@ -48,11 +64,6 @@
               <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'weight'"></i>
               <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'weight'"></i>
               <span class="header-title" (click)="sortPlayers('weight')">Weight</span>
-            </div>
-            <div class="column is-2 justify-center">
-              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'club'"></i>
-              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'club'"></i>
-              <span class="header-title" (click)="sortPlayers('club')">Club</span>
             </div>
           </div>
         </div>

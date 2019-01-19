@@ -112,26 +112,46 @@ hr
   .column-data
     color: $text-primary
 
-    &.is-number
-      +unselectable
-      display: flex
-      align-items: center
-      justify-content: center
-      border: 1px solid $border-default
-      border-radius: 4px
-      line-height: 22px
-      width: 40px
-      height: 28px
-      font-size: 13px
-      background: $white
-      font-family: $font-family-medium
+.is-number
+  +unselectable
+  display: flex
+  align-items: center
+  justify-content: center
+  border: 1px solid $border-default
+  border-radius: 4px
+  line-height: 22px
+  width: 40px
+  height: 28px
+  font-size: 13px
+  background: $white
+  font-family: $font-family-medium
 
-      &.is-green
-        background: rgba($green, .25)
-        color: $green
-        border: 2px solid $green
+  &.is-green
+    background: rgba($green, .25)
+    color: $green
+    border: 2px solid $green
 
-      &.is-orange
-        background: rgba($orange, .25)
-        color: $orange
-        border: 2px solid $orange
+  &.is-orange
+    background: rgba($orange, .25)
+    color: $orange
+    border: 2px solid $orange
+
+.coach-item
+  display: flex
+  align-items: center
+  justify-content: space-between
+  border-radius: 4px
+  line-height: 22px
+  width: 100%
+  height: 32px
+  font-size: 13px
+  font-family: $font-family-medium
+  padding: 0 10px
+  text-transform: uppercase
+  margin-bottom: 5px
+  background: rgba($orange, .25)
+  color: $orange
+  border: 2px solid $orange
+
+  .title
+    text-transform: none
