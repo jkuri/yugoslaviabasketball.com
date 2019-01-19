@@ -59,7 +59,23 @@ export class HomeComponent implements OnInit {
           (order === 'desc') ? (comparison * -1) : comparison
         );
       } else {
-        return order === 'asc' ? a - b : b - a;
+        if (order === 'asc') {
+          if (a[key] > b[key]) {
+            return 1;
+          }
+          if (a[key] < b[key]) {
+            return -1;
+          }
+          return 0;
+        } else {
+          if (a[key] > b[key]) {
+            return -1;
+          }
+          if (a[key] < b[key]) {
+            return 1;
+          }
+          return 0;
+        }
       }
     };
   }
