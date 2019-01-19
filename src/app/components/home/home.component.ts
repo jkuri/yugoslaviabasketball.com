@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
     this.playersService.fetchPlayers()
       .subscribe(resp => {
         this.players = resp;
+        this.sortPlayers(this.key);
       }, err => {
         console.error(err);
       }, () => {
