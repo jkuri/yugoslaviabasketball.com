@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { PlayersService } from '../../shared/players.service';
 import { Player } from '../../shared/player.class';
+import { isPlatformServer } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -85,6 +86,10 @@ export class HomeComponent implements OnInit {
   }
 
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    if (isPlatformServer(this.platformId)) {
+      return;
+    }
+
     if (this.playersService.playerDialogOpened) {
       this.playersService.closePlayerDialog();
     }
