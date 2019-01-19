@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         );
       });
     }, err => {
-      console.error(err);
+      // console.error(err);
     }, () => {
       this.fetching = false;
     });
