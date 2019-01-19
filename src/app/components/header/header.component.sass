@@ -2,9 +2,11 @@
 @import 'typography'
 @import 'variables'
 
+$header-height: 60px
+
 .header
   width: 100%
-  height: 70px
+  height: $header-height
   background: $background
   display: flex
   align-items: center
@@ -13,12 +15,12 @@
 
   .header-container
     width: 100%
-    height: 70px
+    height: $header-height
     display: flex
     justify-content: space-between
 
     .header-left, .header-right, .header-center
-      height: 70px
+      height: $header-height
       display: flex
       align-items: center
 
@@ -43,10 +45,10 @@
         color: $green
 
       &.logo
-        height: 50px
+        height: 40px
 
         img
-          height: 50px
+          height: 40px
 
       .avatar
         width: 30px
