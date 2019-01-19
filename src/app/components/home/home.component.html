@@ -29,10 +29,7 @@
           </div>
         </div>
         <div class="table-items">
-          <app-spinner *ngIf="fetching"></app-spinner>
-          <div *ngIf="!fetching && players.length">
-            <app-player-item [player]="player" *ngFor="let player of players"></app-player-item>
-          </div>
+          <app-player-item [player]="player" *ngFor="let player of players$ | async"></app-player-item>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PlayerItemComponent } from './components/player-item/player-item.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { PlayersService } from './shared/players.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     TransferHttpCacheModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    PlayersService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
