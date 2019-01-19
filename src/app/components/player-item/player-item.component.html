@@ -7,17 +7,20 @@
         </span>
       </span>
     </div>
+    <div class="column is-1 justify-center">
+      <span class="table-data is-number is-green">{{ player?.number === 0 ? '00' : player?.number }}</span>
+    </div>
     <div class="column is-2 justify-center">
       <span class="table-data">{{ player?.name }}</span>
     </div>
     <div class="column is-2 justify-center">
       <span class="table-data">{{ player?.lastname }}</span>
     </div>
-    <div class="column is-2 justify-center">
+    <div class="column is-1 justify-center">
       <span class="table-data">{{ player?.birthdate | date }}</span>
     </div>
     <div class="column is-1 justify-center">
-      <span class="table-data">{{ player?.age }}</span>
+      <span class="table-data is-number">{{ player?.age }}</span>
     </div>
     <div class="column is-1 justify-center">
       <span class="table-data">{{ player?.height }}cm</span>

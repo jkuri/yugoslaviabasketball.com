@@ -43,10 +43,11 @@ $table-item-height: 50px
     font-size: 14px
     box-shadow: 0 1px 0 0 #EAEDF3
     border-top: 1px solid #EAEDF3
+    transition: background 250ms ease-out
 
     &:hover, &.is-active
-      background: $background-light
       cursor: pointer
+      background: $background-light
 
     +mobile
       height: auto
@@ -83,24 +84,23 @@ $table-item-height: 50px
           width: 40px
           height: 28px
           font-size: 13px
+          background: $white
+          font-family: $font-family-medium
 
           &.is-green
             background: rgba($green, .25)
             color: $green
             border: 2px solid $green
-            font-family: $font-family-medium
 
           &.is-red
             background: rgba($red, .25)
             color: $red
             border: 2px solid $red
-            font-family: $font-family-medium
 
           &.is-orange
             background: rgba($orange, .25)
             color: $orange
             border: 2px solid $orange
-            font-family: $font-family-medium
 
         .heading-text, .data-text
           +ellipsis
@@ -121,8 +121,8 @@ $table-item-height: 50px
 
         .avatar-img
           height: 32px
-          background: $white
-          border-radius: 50%
+          background: transparent
+          border-radius: 12px
           display: block
           overflow: hidden
 

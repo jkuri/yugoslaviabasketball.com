@@ -10,7 +10,11 @@ export class Player {
     public height: number,
     public weight: number,
     public club: string,
-    public avatar: string
+    public avatar: string,
+    public number: number,
+    public position: 'C' | 'PF' | 'SF' | 'SG' | 'PG',
+    public birthplace: string,
+    public notes: string
   ) {
     this.age = differenceInYears(new Date(), this.birthdate);
   }

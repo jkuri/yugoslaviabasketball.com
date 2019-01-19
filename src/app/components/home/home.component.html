@@ -12,6 +12,11 @@
         <div class="headers">
           <div class="columns">
             <div class="column is-1"></div>
+            <div class="column is-1 justify-center">
+              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'number'"></i>
+              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'number'"></i>
+              <span class="header-title" (click)="sortPlayers('number')">Number</span>
+            </div>
             <div class="column is-2 justify-center">
               <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'name'"></i>
               <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'name'"></i>
@@ -22,7 +27,7 @@
               <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'lastname'"></i>
               <span class="header-title" (click)="sortPlayers('lastname')">Lastname</span>
             </div>
-            <div class="column is-2 justify-center">
+            <div class="column is-1 justify-center">
               <span class="header-title" (click)="sortPlayers('birthdate')">
                 <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'birthdate'"></i>
                 <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'birthdate'"></i>
@@ -53,9 +58,11 @@
         </div>
         <div class="table-items">
           <app-spinner *ngIf="fetching"></app-spinner>
-          <app-player-item [player]="player" *ngFor="let player of players"></app-player-item>
+          <app-player-item [player]="player" *ngFor="let player of players" (click)="playersService?.openPlayerDialog(player)"></app-player-item>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<app-player-dialog *ngIf="playersService?.playerDialogOpened"></app-player-dialog>

@@ -10,6 +10,7 @@ import { PlayerItemComponent } from './components/player-item/player-item.compon
 import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { PlayersService } from './shared/players.service';
+import { PlayerDialogComponent } from './components/player-dialog/player-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PlayersService } from './shared/players.service';
     HomeComponent,
     PlayerItemComponent,
     HeaderComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    PlayerDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'yugoslaviabasketball.com' }),

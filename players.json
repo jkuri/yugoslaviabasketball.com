@@ -6,7 +6,11 @@
     "height": "210",
     "weight": "114",
     "club": "Banvit, Turkey",
-    "avatar": "/assets/images/players/vidmar.jpg"
+    "avatar": "/assets/images/players/vidmar.jpg",
+    "number": "00",
+    "position": "C",
+    "birthplace": "Ljubljana, Slovenia",
+    "notes": ""
   },
   {
     "name": "Jusuf",
@@ -15,7 +19,11 @@
     "height": "211",
     "weight": "127",
     "club": "Portland Trail Blazers, USA",
-    "avatar": "/assets/images/players/nurkic.png"
+    "avatar": "/assets/images/players/nurkic.png",
+    "number": "27",
+    "position": "C",
+    "birthplace": "Tuzla, Bosnia and Herzegovina",
+    "notes": ""
   },
   {
     "name": "Luka",
@@ -24,7 +32,11 @@
     "height": "201",
     "weight": "99",
     "club": "Dallas Mavericks, USA",
-    "avatar": "/assets/images/players/doncic.jpg"
+    "avatar": "/assets/images/players/doncic.jpg",
+    "number": "77",
+    "position": "SG",
+    "birthplace": "Ljubljana, Slovenia",
+    "notes": ""
   },
   {
     "name": "Bogdan",
@@ -33,7 +45,11 @@
     "height": "198",
     "weight": "93",
     "club": "Sacramento Kings, USA",
-    "avatar": "/assets/images/players/bogdanovic.jpg"
+    "avatar": "/assets/images/players/bogdanovic.jpg",
+    "number": "1",
+    "position": "SG",
+    "birthplace": "Belgrade, Serbia",
+    "notes": ""
   },
   {
     "name": "Goran",
@@ -42,7 +58,11 @@
     "height": "191",
     "weight": "85",
     "club": "Miami Heat, USA",
-    "avatar": "/assets/images/players/dragic.png"
+    "avatar": "/assets/images/players/dragic.png",
+    "number": "7",
+    "position": "PG",
+    "birthplace": "Ljubljana, Slovenia",
+    "notes": ""
   },
   {
     "name": "Boban",
@@ -51,7 +71,11 @@
     "height": "222",
     "weight": "132",
     "club": "Los Angeles Clippers, USA",
-    "avatar": "/assets/images/players/marjanovic.png"
+    "avatar": "/assets/images/players/marjanovic.png",
+    "number": "51",
+    "position": "C",
+    "birthplace": "Boljevac, Serbia",
+    "notes": ""
   },
   {
     "name": "Dario",
@@ -60,7 +84,11 @@
     "height": "208",
     "weight": "101",
     "club": "Minnesota Timberwolves, USA",
-    "avatar": "/assets/images/players/saric.png"
+    "avatar": "/assets/images/players/saric.png",
+    "number": "36",
+    "position": "PF",
+    "birthplace": "Šibenik, Croatia",
+    "notes": ""
   },
   {
     "name": "Anthony",
@@ -69,7 +97,11 @@
     "height": "211",
     "weight": "104",
     "club": "Real Madrid, Spain",
-    "avatar": "/assets/images/players/randolph.png"
+    "avatar": "/assets/images/players/randolph.png",
+    "number": "15",
+    "position": "PF",
+    "birthplace": "Würzburg, Germany",
+    "notes": ""
   },
   {
     "name": "Mario",
@@ -78,7 +110,11 @@
     "height": "203",
     "weight": "102",
     "club": "New York Knicks, USA",
-    "avatar": "/assets/images/players/hezonja.jpg"
+    "avatar": "/assets/images/players/hezonja.jpg",
+    "number": "8",
+    "position": "PF",
+    "birthplace": "Dubrovnik, Croatia",
+    "notes": ""
   },
   {
     "name": "Miloš",
@@ -87,7 +123,11 @@
     "height": "196",
     "weight": "88",
     "club": "Los Angeles Clippers, USA",
-    "avatar": "/assets/images/players/teodosic.png"
+    "avatar": "/assets/images/players/teodosic.png",
+    "number": "4",
+    "position": "SG",
+    "birthplace": "Valjevo, Serbia",
+    "notes": ""
   },
   {
     "name": "Nikola",
@@ -96,7 +136,11 @@
     "height": "213",
     "weight": "113",
     "club": "Denver Nuggets, USA",
-    "avatar": "/assets/images/players/jokic.png"
+    "avatar": "/assets/images/players/jokic.png",
+    "number": "16",
+    "position": "C",
+    "birthplace": "Sombor, Serbia",
+    "notes": ""
   },
   {
     "name": "Roko",
@@ -105,6 +149,10 @@
     "height": "196",
     "weight": "86",
     "club": "Levallois Metropolitans, France",
-    "avatar": "/assets/images/players/ukic.jpg"
+    "avatar": "/assets/images/players/ukic.jpg",
+    "number": "10",
+    "position": "PG",
+    "birthplace": "Split, Croatia",
+    "notes": ""
   }
 ]

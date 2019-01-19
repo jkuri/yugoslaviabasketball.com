@@ -1,0 +1,90 @@
+<div class="dialog-overlay">
+  <div class="dialog-container">
+    <div class="dialog-header">
+      <h1>{{ playersService?.player?.name }} {{ playersService?.player?.lastname }}</h1>
+      <i class="fa fa-times" (click)="playersService?.closePlayerDialog()"></i>
+    </div>
+    <div class="dialog-body has-padding">
+      <div class="columns is-multiline">
+        <div class="column is-3">
+          <img [src]="playersService?.player?.avatar">
+        </div>
+        <div class="column is-9">
+          <div class="columns is-multiline">
+            <div class="column is-12">
+              <div class="data-column">
+                <span class="column-title">Name</span>
+                <span class="column-data">{{ playersService?.player?.name }}</span>
+              </div>
+            </div>
+            <div class="column is-12">
+              <div class="data-column">
+                <span class="column-title">Lastname</span>
+                <span class="column-data">{{ playersService?.player?.lastname }}</span>
+              </div>
+            </div>
+            <div class="column is-12">
+              <div class="data-column">
+                <span class="column-title">Birth Date</span>
+                <span class="column-data">{{ playersService?.player?.birthdate | date }}</span>
+              </div>
+            </div>
+            <div class="column is-12">
+              <div class="data-column">
+                <span class="column-title">Birth Place</span>
+                <span class="column-data">{{ playersService?.player?.birthplace }}</span>
+              </div>
+            </div>
+            <div class="column is-12">
+              <div class="data-column">
+                <span class="column-title">Age</span>
+                <span class="column-data is-number">{{ playersService?.player?.age }}</span>
+              </div>
+            </div>
+            <div class="column is-12">
+              <div class="data-column">
+                <span class="column-title">Position</span>
+                <span class="column-data is-number is-orange">{{ playersService?.player?.position }}</span>
+              </div>
+            </div>
+            <div class="column is-12">
+              <div class="data-column">
+                <span class="column-title">Height</span>
+                <span class="column-data">{{ playersService?.player?.height }}cm</span>
+              </div>
+            </div>
+            <div class="column is-12">
+              <div class="data-column">
+                <span class="column-title">Weight</span>
+                <span class="column-data">{{ playersService?.player?.weight }}kg</span>
+              </div>
+            </div>
+            <div class="column is-12">
+              <div class="data-column">
+                <span class="column-title">Number</span>
+                <span class="column-data is-number is-green">{{ playersService?.player?.number === 0 ? '00' : playersService?.player?.number }}</span>
+              </div>
+            </div>
+            <div class="column is-12">
+              <div class="data-column">
+                <span class="column-title">Club</span>
+                <span class="column-data">{{ playersService?.player?.club }}</span>
+              </div>
+            </div>
+            <div class="column is-12" *ngIf="playersService?.player?.notes !== ''">
+              <div class="data-column">
+                <span class="column-title">Notes</span>
+                <span class="column-data">{{ playersService?.player?.notes }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dialog-footer justify-end">
+      <button type="button" class="button is-small" (click)="playersService?.closePlayerDialog()">
+        <span>Close</span>
+      </button>
+    </div>
+  </div>
+</div>

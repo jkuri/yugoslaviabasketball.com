@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, HostListener } from '@angular/core';
 import { PlayersService } from '../../shared/players.service';
 import { Player } from '../../shared/player.class';
 
@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
   key = 'lastname';
 
   constructor(
-    private playersService: PlayersService
+    public playersService: PlayersService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) { }
 
   ngOnInit() {
@@ -81,5 +82,11 @@ export class HomeComponent implements OnInit {
         }
       }
     };
+  }
+
+  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
+    if (this.playersService.playerDialogOpened) {
+      this.playersService.closePlayerDialog();
+    }
   }
 }

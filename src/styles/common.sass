@@ -98,3 +98,40 @@ hr
 
 .mb50
   margin-bottom: 50px
+
+.data-column
+  border-bottom: 1px solid #EAEDF3
+  display: flex
+  align-items: center
+  justify-content: space-between
+  height: 40px
+
+  .column-title
+    color: $text-secondary
+
+  .column-data
+    color: $text-primary
+
+    &.is-number
+      +unselectable
+      display: flex
+      align-items: center
+      justify-content: center
+      border: 1px solid $border-default
+      border-radius: 4px
+      line-height: 22px
+      width: 40px
+      height: 28px
+      font-size: 13px
+      background: $white
+      font-family: $font-family-medium
+
+      &.is-green
+        background: rgba($green, .25)
+        color: $green
+        border: 2px solid $green
+
+      &.is-orange
+        background: rgba($orange, .25)
+        color: $orange
+        border: 2px solid $orange

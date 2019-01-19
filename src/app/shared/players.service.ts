@@ -10,12 +10,24 @@ import { Player } from './player.class';
 })
 export class PlayersService {
   url: string;
+  playerDialogOpened: boolean;
+  player: Player;
 
   constructor(
     private http: HttpClient,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.url = isPlatformServer(this.platformId) ? 'http://localhost:4444/api/players' : '/api/players';
+  }
+
+  openPlayerDialog(player: Player): void {
+    this.player = player;
+    this.playerDialogOpened = true;
+  }
+
+  closePlayerDialog(): void {
+    this.playerDialogOpened = false;
+    this.player = null;
   }
 
   fetchPlayers(): Observable<Player[]> {
@@ -30,7 +42,11 @@ export class PlayersService {
               Number(player.height),
               Number(player.weight),
               player.club,
-              player.avatar
+              player.avatar,
+              Number(player.number),
+              player.position,
+              player.birthplace,
+              player.notes
             );
           });
         })
