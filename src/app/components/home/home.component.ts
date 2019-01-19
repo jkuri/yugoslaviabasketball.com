@@ -53,13 +53,15 @@ export class HomeComponent implements OnInit {
         return 0;
       }
 
-      if (typeof a[key] === 'string' && typeof b[key] === 'string') {
+      if (typeof a[key] === 'number' && typeof b[key] === 'number') {
+        return order === 'asc' ? a[key] - b[key] : b[key] - a[key];
+      } else if (typeof a[key] === 'string' && typeof b[key] === 'string') {
         const comparison = a[key].localeCompare(b[key]);
 
         return (
           (order === 'desc') ? (comparison * -1) : comparison
         );
-      } else {
+      } else if (a[key] instanceof Date && b[key] instanceof Date) {
         if (order === 'asc') {
           if (a[key] > b[key]) {
             return 1;

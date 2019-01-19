@@ -27,8 +27,8 @@ export class PlayersService {
               player.name,
               player.lastname,
               new Date(player.birthdate),
-              player.height,
-              player.weight,
+              Number(player.height),
+              Number(player.weight),
               player.club,
               player.avatar
             );
