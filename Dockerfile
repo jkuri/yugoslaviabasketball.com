@@ -4,8 +4,8 @@ COPY . /app
 
 WORKDIR /app
 
-RUN npm install yarn -g && yarn && yarn build:ssr
+RUN npm install && npm run build:ssr
 
-ENTRYPOINT [ "yarn", "serve:ssr" ]
+ENTRYPOINT [ "npm", "run", "serve:ssr" ]
 
 EXPOSE 4444

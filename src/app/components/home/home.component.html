@@ -1,40 +1,36 @@
-<div class="hero is-fullheight">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-12">
-          <div class="table">
-            <div class="headers">
-              <div class="columns">
-                <div class="column is-1"></div>
-                <div class="column is-2 justify-center">
-                  <span class="header-title">Name</span>
-                </div>
-                <div class="column is-2 justify-center">
-                  <span class="header-title">Lastname</span>
-                </div>
-                <div class="column is-2 justify-center">
-                  <span class="header-title">Birth Date</span>
-                </div>
-                <div class="column is-1 justify-center">
-                  <span class="header-title">Age</span>
-                </div>
-                <div class="column is-1 justify-center">
-                  <span class="header-title">Height</span>
-                </div>
-                <div class="column is-1 justify-center">
-                  <span class="header-title">Weight</span>
-                </div>
-                <div class="column is-2 justify-center">
-                  <span class="header-title">Club</span>
-                </div>
-              </div>
+<div class="container mt30 mb50">
+  <div class="columns">
+    <div class="column is-12">
+      <div class="table">
+        <div class="headers">
+          <div class="columns">
+            <div class="column is-1"></div>
+            <div class="column is-2 justify-center">
+              <span class="header-title">Name</span>
             </div>
-            <div class="table-items">
-              <div *ngIf="!fetching && players.length">
-                <app-player-item [player]="player" *ngFor="let player of players"></app-player-item>
-              </div>
+            <div class="column is-2 justify-center">
+              <span class="header-title">Lastname</span>
             </div>
+            <div class="column is-2 justify-center">
+              <span class="header-title">Birth Date</span>
+            </div>
+            <div class="column is-1 justify-center">
+              <span class="header-title">Age</span>
+            </div>
+            <div class="column is-1 justify-center">
+              <span class="header-title">Height</span>
+            </div>
+            <div class="column is-1 justify-center">
+              <span class="header-title">Weight</span>
+            </div>
+            <div class="column is-2 justify-center">
+              <span class="header-title">Club</span>
+            </div>
+          </div>
+        </div>
+        <div class="table-items">
+          <div *ngIf="!fetching && players.length">
+            <app-player-item [player]="player" *ngFor="let player of players"></app-player-item>
           </div>
         </div>
       </div>
