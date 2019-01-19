@@ -1,0 +1,44 @@
+$tab-height: 36px
+
+.tabs
+  display: flex
+  justify-content: space-between
+  width: 100%
+  border-bottom: 1px solid $border-primary
+  height: $tab-height
+
+  .tabs-heading
+    display: flex
+    align-items: center
+    height: $tab-height
+
+  .tab
+    +unselectable
+    height: $tab-height
+    font-size: 13px
+    color: $text-secondary
+    font-family: $font-family-regular
+    display: inline-flex
+    align-items: center
+    padding: 4px 30px
+    margin-left: -1px
+    margin-bottom: -1px
+    border: 1px solid transparent
+    cursor: pointer
+    border-top-left-radius: 3px
+    border-top-right-radius: 3px
+    background: transparent
+    outline: none
+    text-transform: uppercase
+
+    &.is-active
+      border-left: 1px solid $border-primary
+      border-top: 1px solid $border-primary
+      border-right: 1px solid $border-primary
+      border-bottom: 1px solid $white
+
+    i
+      margin-right: 10px
+
+.tabs-content
+  padding: 20px 0 10px 0
