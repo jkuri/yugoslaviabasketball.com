@@ -1,8 +1,8 @@
 import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformServer } from '@angular/common';
-import { Observable, of } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Player } from './player.class';
 
 @Injectable({
@@ -33,8 +33,7 @@ export class PlayersService {
               player.avatar
             );
           });
-        }),
-        catchError(err => of(JSON.parse(err)))
+        })
       );
   }
 }

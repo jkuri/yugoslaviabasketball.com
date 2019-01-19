@@ -1,6 +1,8 @@
 import { differenceInYears } from 'date-fns';
 
 export class Player {
+  age: number;
+
   constructor(
     public name: string,
     public lastname: string,
@@ -9,9 +11,7 @@ export class Player {
     public weight: number,
     public club: string,
     public avatar: string
-  ) { }
-
-  getAge(): number {
-    return differenceInYears(new Date(), this.birthdate);
+  ) {
+    this.age = differenceInYears(new Date(), this.birthdate);
   }
 }
