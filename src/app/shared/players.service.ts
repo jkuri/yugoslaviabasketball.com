@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { isPlatformServer } from '@angular/common';
 import { Observable, of } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { Player } from './player.class';
@@ -11,9 +12,10 @@ export class PlayersService {
   url: string;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    this.url = 'https://yugoslaviabasketball.com/api/players';
+    this.url = isPlatformServer(this.platformId) ? 'http://localhost:4444/api/players' : '/api/players';
   }
 
   fetchPlayers(): Observable<Player[]> {
