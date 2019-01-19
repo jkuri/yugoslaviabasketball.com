@@ -29,7 +29,8 @@ export class HomeComponent implements OnInit {
           new Date(data.birthdate),
           data.height,
           data.weight,
-          data.club
+          data.club,
+          data.avatar
         );
       });
     }, err => {

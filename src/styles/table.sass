@@ -102,54 +102,13 @@ $table-item-height: 50px
           font-size: 13px
           font-family: $font-family-medium
 
-          i, img
-            width: 20px
-            height: 20px
-            display: block
-            margin: 0 auto
-            font-size: 20px
-
-          img
-            width: 20px
-            height: 20px
-            border-radius: 50%
-
-          i
-
-            &.is-yellow
-              color: $yellow
-
-            &.is-green
-              color: $green
-
-            &.is-red
-              color: $red
-
-      .members-avatars
-        padding: 0 10px
-
-        .member-avatar, .plus-icon
-          width: 28px
-          height: 28px
+        .avatar-img
+          height: 32px
           background: $white
           border-radius: 50%
-          margin-right: 5px
-          display: inline-flex
-          align-items: center
-          justify-content: center
+          display: block
+          overflow: hidden
 
           img
-            width: 28px
-            height: 28px
-            background: $white
-            border-radius: 50%
-            border: 1px solid $border-default
-
-        .plus-icon
-          cursor: pointer
-          font-size: 12px
-          border: 1px solid $border-default
-
-          &:hover
-            +unselectable
-            border-color: $border-primary
+            display: block
+            height: 32px

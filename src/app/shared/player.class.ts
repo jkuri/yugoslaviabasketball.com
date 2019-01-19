@@ -7,7 +7,8 @@ export class Player {
     public birthdate: Date,
     public height: number,
     public weight: number,
-    public club: string
+    public club: string,
+    public avatar: string
   ) { }
 
   getAge(): number {
