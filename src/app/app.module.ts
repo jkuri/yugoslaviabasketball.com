@@ -11,6 +11,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { PlayersService } from './shared/players.service';
 import { PlayerDialogComponent } from './components/player-dialog/player-dialog.component';
+import { ResizeService } from './shared/resize.service';
+import { LineChartComponent } from './charts/line-chart.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,11 @@ import { PlayerDialogComponent } from './components/player-dialog/player-dialog.
     PlayerItemComponent,
     HeaderComponent,
     SpinnerComponent,
-    PlayerDialogComponent
+    PlayerDialogComponent,
+    LineChartComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'yugoslaviabasketball.com' }),
+    BrowserModule.withServerTransition({ appId: 'yugoslaviabasketball' }),
     RouterModule.forRoot([
       { path: '', pathMatch: 'full', component: HomeComponent }
     ]),
@@ -30,7 +33,8 @@ import { PlayerDialogComponent } from './components/player-dialog/player-dialog.
     HttpClientModule
   ],
   providers: [
-    PlayersService
+    PlayersService,
+    ResizeService
   ],
   bootstrap: [AppComponent]
 })
