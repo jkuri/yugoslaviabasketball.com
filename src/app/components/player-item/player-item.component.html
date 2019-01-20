@@ -10,10 +10,10 @@
     <div class="column is-1 justify-center">
       <span class="table-data is-number is-green">{{ player?.number === 0 ? '00' : player?.number }}</span>
     </div>
-    <div class="column is-2 justify-center">
+    <div class="column is-1 justify-center">
       <span class="table-data">{{ player?.name }}</span>
     </div>
-    <div class="column is-2 justify-center">
+    <div class="column is-1 justify-center">
       <span class="table-data">{{ player?.lastname }}</span>
     </div>
     <div class="column is-1 justify-center">
@@ -30,6 +30,16 @@
     </div>
     <div class="column is-1 justify-center">
       <span class="table-data">{{ player?.weight }}kg</span>
+    </div>
+    <div class="column is-2 justify-center align-center">
+      <button type="button" class="button is-small" (click)="info.emit(player)">
+        <i class="far fa-user-circle"></i>
+        <span>Info</span>
+      </button>
+      <button type="button" class="button is-small" (click)="stats.emit(player.id)">
+        <i class="fas fa-chart-line"></i>
+        <span>Stats</span>
+      </button>
     </div>
   </div>
 </div>

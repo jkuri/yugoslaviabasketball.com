@@ -4,6 +4,7 @@ export class Player {
   age: number;
 
   constructor(
+    public id: number,
     public name: string,
     public lastname: string,
     public birthdate: Date,

@@ -36,6 +36,7 @@ export class PlayersService {
         map((data: Player[]) => {
           return data.map(player => {
             return new Player(
+              player.id,
               player.name,
               player.lastname,
               new Date(player.birthdate),

@@ -4,10 +4,10 @@ import { Player } from '../../shared/player.class';
 import { isPlatformServer } from '@angular/common';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html'
+  selector: 'app-team',
+  templateUrl: './team.component.html'
 })
-export class HomeComponent implements OnInit {
+export class TeamComponent implements OnInit {
   fetching: boolean;
   players: Player[] = [];
   order: 'asc' | 'desc' = 'asc';

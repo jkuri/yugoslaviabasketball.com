@@ -30,12 +30,12 @@
               <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'number'"></i>
               <span class="header-title" (click)="sortPlayers('number')">Number</span>
             </div>
-            <div class="column is-2 justify-center">
+            <div class="column is-1 justify-center">
               <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'name'"></i>
               <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'name'"></i>
               <span class="header-title" (click)="sortPlayers('name')">Name</span>
             </div>
-            <div class="column is-2 justify-center">
+            <div class="column is-1 justify-center">
               <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'lastname'"></i>
               <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'lastname'"></i>
               <span class="header-title" (click)="sortPlayers('lastname')">Lastname</span>
@@ -67,11 +67,12 @@
               <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'weight'"></i>
               <span class="header-title" (click)="sortPlayers('weight')">Weight</span>
             </div>
+            <div class="column is-2 justify-center"></div>
           </div>
         </div>
         <div class="table-items">
           <app-spinner *ngIf="fetching"></app-spinner>
-          <app-player-item [player]="player" *ngFor="let player of players" (click)="playersService?.openPlayerDialog(player)"></app-player-item>
+          <app-player-item [player]="player" *ngFor="let player of players" (info)="playersService?.openPlayerDialog($event)"></app-player-item>
         </div>
       </div>
     </div>

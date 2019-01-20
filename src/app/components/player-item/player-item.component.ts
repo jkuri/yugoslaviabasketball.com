@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Player } from '../../shared/player.class';
 
 @Component({
@@ -7,8 +7,13 @@ import { Player } from '../../shared/player.class';
 })
 export class PlayerItemComponent implements OnInit {
   @Input() player: Player;
+  @Output() info: EventEmitter<Player>;
+  @Output() stats: EventEmitter<number>;
 
-  constructor() { }
+  constructor() {
+    this.info = new EventEmitter<Player>();
+    this.stats = new EventEmitter<number>();
+  }
 
   ngOnInit() { }
 }

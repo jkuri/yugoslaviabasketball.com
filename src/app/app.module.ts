@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TransferHttpCacheModule } from '@nguniversal/common';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { TeamComponent } from './components/team/team.component';
 import { PlayerItemComponent } from './components/player-item/player-item.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
@@ -17,7 +17,7 @@ import { LineChartComponent } from './charts/line-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    TeamComponent,
     PlayerItemComponent,
     HeaderComponent,
     SpinnerComponent,
@@ -27,7 +27,8 @@ import { LineChartComponent } from './charts/line-chart.component';
   imports: [
     BrowserModule.withServerTransition({ appId: 'yugoslaviabasketball' }),
     RouterModule.forRoot([
-      { path: '', pathMatch: 'full', component: HomeComponent }
+      { path: '', pathMatch: 'full', redirectTo: 'team' },
+      { path: 'team', component: TeamComponent }
     ]),
     TransferHttpCacheModule,
     HttpClientModule
