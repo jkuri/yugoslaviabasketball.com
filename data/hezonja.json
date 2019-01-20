@@ -1,0 +1,93 @@
+{
+  "2008/2009": {
+    "team": "Dubrovnik",
+    "ppg": 1.2,
+    "percent": 0,
+    "ft_percent": 0,
+    "3fg_percent": 28.6,
+    "rpg": 0,
+    "apg": 0,
+    "spg": 0,
+    "bpg": 0,
+    "mpg": 0
+  },
+  "2010/2011": {
+    "team": "Zagreb",
+    "ppg": 2.7,
+    "percent": 0,
+    "ft_percent": 83.3,
+    "3fg_percent": 50,
+    "rpg": 0,
+    "apg": 0,
+    "spg": 0,
+    "bpg": 0,
+    "mpg": 0
+  },
+  "2012/2013": {
+    "team": "Barcelona",
+    "ppg": 2.5,
+    "percent": 33.3,
+    "ft_percent": 50,
+    "3fg_percent": 0,
+    "rpg": 2.0,
+    "apg": 0,
+    "spg": 0.5,
+    "bpg": 0,
+    "mpg": 9.5
+  },
+  "2013/2014": {
+    "team": "Barcelona",
+    "ppg": 1.6,
+    "percent": 42.9,
+    "ft_percent": 75,
+    "3fg_percent": 25,
+    "rpg": 0.5,
+    "apg": 0.2,
+    "spg": 0,
+    "bpg": 0
+  },
+  "2014/2015": {
+    "team": "Barcelona",
+    "ppg": 7.7,
+    "percent": 46.2,
+    "ft_percent": 75,
+    "3fg_percent": 38.2,
+    "rpg": 2.0,
+    "apg": 1,
+    "spg": 0.6,
+    "bpg": 0.2
+  },
+  "2015/2016": {
+    "team": "Orlando Magic",
+    "ppg": 6.1,
+    "percent": 43.3,
+    "ft_percent": 90.7,
+    "3fg_percent": 34.9,
+    "rpg": 2.2,
+    "apg": 1.4,
+    "spg": 0.5,
+    "bpg": 0.2
+  },
+  "2016/2017": {
+    "team": "Orlando Magic",
+    "ppg": 4.9,
+    "percent": 35.5,
+    "ft_percent": 80.0,
+    "3fg_percent": 29.9,
+    "rpg": 2.2,
+    "apg": 1,
+    "spg": 0.5,
+    "bpg": 0.2
+  },
+  "2017/2018": {
+    "team": "Orlando Magic",
+    "ppg": 9.6,
+    "percent": 44.2,
+    "ft_percent": 81.9,
+    "3fg_percent": 33.7,
+    "rpg": 3.7,
+    "apg": 1.4,
+    "spg": 1.1,
+    "bpg": 0.4
+  }
+}

@@ -63,7 +63,7 @@ app.listen(PORT, () => {
 
 function fetchPlayers(): Promise<any> {
   return new Promise((res, reject) => {
-    readFile(resolve(DIST_FOLDER, '..', 'players.json'), (err: NodeJS.ErrnoException, data: Buffer) => {
+    readFile(resolve(DIST_FOLDER, '..', 'data', 'players.json'), (err: NodeJS.ErrnoException, data: Buffer) => {
       if (err) {
         reject(err);
       } else {
