@@ -17,7 +17,7 @@ export class PlayersService {
     private http: HttpClient,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
-    this.url = isPlatformServer(this.platformId) ? 'http://localhost:4444/api/players' : '/api/players';
+    this.url = isPlatformServer(this.platformId) ? 'http://localhost:4444/' : '/';
   }
 
   openPlayerDialog(player: Player): void {
@@ -30,8 +30,14 @@ export class PlayersService {
     this.player = null;
   }
 
+  fetchPlayer(id: number): Observable<any> {
+    const url = `${this.url}api/players/${id}`;
+    return this.http.get<any>(url);
+  }
+
   fetchPlayers(): Observable<Player[]> {
-    return this.http.get<Player[]>(this.url)
+    const url = this.url + 'api/players';
+    return this.http.get<Player[]>(url)
       .pipe(
         map((data: Player[]) => {
           return data.map(player => {

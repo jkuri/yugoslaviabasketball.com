@@ -13,6 +13,7 @@ import { PlayersService } from './shared/players.service';
 import { PlayerDialogComponent } from './components/player-dialog/player-dialog.component';
 import { ResizeService } from './shared/resize.service';
 import { LineChartComponent } from './charts/line-chart.component';
+import { PlayerInfoComponent } from './components/player-info/player-info.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +23,15 @@ import { LineChartComponent } from './charts/line-chart.component';
     HeaderComponent,
     SpinnerComponent,
     PlayerDialogComponent,
-    LineChartComponent
+    LineChartComponent,
+    PlayerInfoComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'yugoslaviabasketball' }),
     RouterModule.forRoot([
       { path: '', pathMatch: 'full', redirectTo: 'team' },
-      { path: 'team', component: TeamComponent }
+      { path: 'team', component: TeamComponent },
+      { path: 'player/:id', component: PlayerInfoComponent }
     ]),
     TransferHttpCacheModule,
     HttpClientModule

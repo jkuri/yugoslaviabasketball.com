@@ -36,7 +36,7 @@
         <i class="far fa-user-circle"></i>
         <span>Info</span>
       </button>
-      <button type="button" class="button is-small" (click)="stats.emit(player.id)">
+      <button type="button" class="button is-small" [routerLink]="['/player', player.id]">
         <i class="fas fa-chart-line"></i>
         <span>Stats</span>
       </button>
