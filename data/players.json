@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "name": "Gašper",
     "lastname": "Vidmar",
     "birthdate": "1987-09-14",
@@ -13,6 +14,7 @@
     "notes": ""
   },
   {
+    "id": 2,
     "name": "Jusuf",
     "lastname": "Nurkić",
     "birthdate": "1994-08-23",
@@ -26,6 +28,7 @@
     "notes": ""
   },
   {
+    "id": 3,
     "name": "Luka",
     "lastname": "Dončić",
     "birthdate": "1999-02-28",
@@ -39,6 +42,7 @@
     "notes": ""
   },
   {
+    "id": 4,
     "name": "Bogdan",
     "lastname": "Bogdanović",
     "birthdate": "1992-08-18",
@@ -52,6 +56,7 @@
     "notes": ""
   },
   {
+    "id": 5,
     "name": "Goran",
     "lastname": "Dragić",
     "birthdate": "1986-05-06",
@@ -65,6 +70,7 @@
     "notes": ""
   },
   {
+    "id": 6,
     "name": "Boban",
     "lastname": "Marjanović",
     "birthdate": "1988-08-15",
@@ -78,6 +84,7 @@
     "notes": ""
   },
   {
+    "id": 7,
     "name": "Dario",
     "lastname": "Šarić",
     "birthdate": "1994-04-08",
@@ -91,6 +98,7 @@
     "notes": ""
   },
   {
+    "id": 8,
     "name": "Anthony",
     "lastname": "Randolph",
     "birthdate": "1989-07-15",
@@ -104,6 +112,7 @@
     "notes": ""
   },
   {
+    "id": 9,
     "name": "Mario",
     "lastname": "Hezonja",
     "birthdate": "1995-02-25",
@@ -117,6 +126,7 @@
     "notes": ""
   },
   {
+    "id": 10,
     "name": "Miloš",
     "lastname": "Teodošić",
     "birthdate": "1987-03-19",
@@ -130,6 +140,7 @@
     "notes": ""
   },
   {
+    "id": 11,
     "name": "Nikola",
     "lastname": "Jokić",
     "birthdate": "1995-02-19",
@@ -143,6 +154,7 @@
     "notes": ""
   },
   {
+    "id": 12,
     "name": "Roko",
     "lastname": "Ukić",
     "birthdate": "1984-12-05",
