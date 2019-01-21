@@ -44,7 +44,8 @@
     "rpg": 0.5,
     "apg": 0.2,
     "spg": 0,
-    "bpg": 0
+    "bpg": 0,
+    "mpg": 0
   },
   "2014/2015": {
     "team": "Barcelona",
@@ -55,7 +56,8 @@
     "rpg": 2.0,
     "apg": 1,
     "spg": 0.6,
-    "bpg": 0.2
+    "bpg": 0.2,
+    "mpg": 0
   },
   "2015/2016": {
     "team": "Orlando Magic",
@@ -66,7 +68,8 @@
     "rpg": 2.2,
     "apg": 1.4,
     "spg": 0.5,
-    "bpg": 0.2
+    "bpg": 0.2,
+    "mpg": 0
   },
   "2016/2017": {
     "team": "Orlando Magic",
@@ -77,7 +80,8 @@
     "rpg": 2.2,
     "apg": 1,
     "spg": 0.5,
-    "bpg": 0.2
+    "bpg": 0.2,
+    "mpg": 0
   },
   "2017/2018": {
     "team": "Orlando Magic",
@@ -88,6 +92,7 @@
     "rpg": 3.7,
     "apg": 1.4,
     "spg": 1.1,
-    "bpg": 0.4
+    "bpg": 0.4,
+    "mpg": 0
   }
 }
