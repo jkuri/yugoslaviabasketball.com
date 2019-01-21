@@ -1,0 +1,28 @@
+.line-chart
+  width: 100%
+  height: 200px
+  display: block
+
+  svg
+
+    .line
+      fill: none
+      stroke-width: 3px
+      shape-rendering: geometricPrecision
+
+    .axis
+
+        line, path
+          stroke: $border-box
+          stroke-width: 1px
+          shape-rendering: crispEdges
+          fill: none
+          stroke-dasharray: 3 3
+
+        path
+          display: none
+
+        text
+          fill: $text-primary
+          font-family: $font-family-regular
+          font-size: 10px

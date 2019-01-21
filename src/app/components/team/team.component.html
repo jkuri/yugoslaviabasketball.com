@@ -1,79 +1,77 @@
-<div class="container mt30 mb50">
-  <div class="columns is-multiline">
-    <div class="column is-12">
-      <div class="align-center">
-        <h1>Team</h1>
-        <h4>Team players list.</h4>
-      </div>
-      <hr class="mb10" />
+<div class="columns is-multiline">
+  <div class="column is-12">
+    <div class="align-center">
+      <h1>Team</h1>
+      <h4>Team players list.</h4>
     </div>
-    <div class="column is-6"></div>
-    <div class="column is-3">
-      <div class="coach-item">
-        <span class="title">Coach</span>
-        <span class="name">Gregg Popovich</span>
-      </div>
+    <hr class="mb10" />
+  </div>
+  <div class="column is-6"></div>
+  <div class="column is-3">
+    <div class="coach-item">
+      <span class="title">Coach</span>
+      <span class="name">Gregg Popovich</span>
     </div>
-    <div class="column is-3">
-      <div class="coach-item">
-        <span class="title">Coach Assistant</span>
-        <span class="name">Peja Stojaković</span>
-      </div>
+  </div>
+  <div class="column is-3">
+    <div class="coach-item">
+      <span class="title">Coach Assistant</span>
+      <span class="name">Peja Stojaković</span>
     </div>
-    <div class="column is-12">
-      <div class="table">
-        <div class="headers">
-          <div class="columns">
-            <div class="column is-1"></div>
-            <div class="column is-1 justify-center">
-              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'number'"></i>
-              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'number'"></i>
-              <span class="header-title" (click)="sortPlayers('number')">Number</span>
-            </div>
-            <div class="column is-1 justify-center">
-              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'name'"></i>
-              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'name'"></i>
-              <span class="header-title" (click)="sortPlayers('name')">Name</span>
-            </div>
-            <div class="column is-1 justify-center">
-              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'lastname'"></i>
-              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'lastname'"></i>
-              <span class="header-title" (click)="sortPlayers('lastname')">Lastname</span>
-            </div>
-            <div class="column is-1 justify-center">
-              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'position'"></i>
-              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'position'"></i>
-              <span class="header-title" (click)="sortPlayers('position')">Position</span>
-            </div>
-            <div class="column is-2 justify-center">
-              <span class="header-title" (click)="sortPlayers('birthdate')">
-                <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'birthdate'"></i>
-                <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'birthdate'"></i>
-                Birth Date
-              </span>
-            </div>
-            <div class="column is-1 justify-center">
-              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'age'"></i>
-              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'age'"></i>
-              <span class="header-title" (click)="sortPlayers('age')">Age</span>
-            </div>
-            <div class="column is-1 justify-center">
-              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'height'"></i>
-              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'height'"></i>
-              <span class="header-title" (click)="sortPlayers('height')">Height</span>
-            </div>
-            <div class="column is-1 justify-center">
-              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'weight'"></i>
-              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'weight'"></i>
-              <span class="header-title" (click)="sortPlayers('weight')">Weight</span>
-            </div>
-            <div class="column is-2 justify-center"></div>
+  </div>
+  <div class="column is-12">
+    <div class="table">
+      <div class="headers">
+        <div class="columns">
+          <div class="column is-1"></div>
+          <div class="column is-1 justify-center">
+            <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'number'"></i>
+            <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'number'"></i>
+            <span class="header-title" (click)="sortPlayers('number')">Number</span>
           </div>
+          <div class="column is-1 justify-center">
+            <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'name'"></i>
+            <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'name'"></i>
+            <span class="header-title" (click)="sortPlayers('name')">Name</span>
+          </div>
+          <div class="column is-1 justify-center">
+            <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'lastname'"></i>
+            <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'lastname'"></i>
+            <span class="header-title" (click)="sortPlayers('lastname')">Lastname</span>
+          </div>
+          <div class="column is-1 justify-center">
+            <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'position'"></i>
+            <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'position'"></i>
+            <span class="header-title" (click)="sortPlayers('position')">Position</span>
+          </div>
+          <div class="column is-2 justify-center">
+            <span class="header-title" (click)="sortPlayers('birthdate')">
+              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'birthdate'"></i>
+              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'birthdate'"></i>
+              Birth Date
+            </span>
+          </div>
+          <div class="column is-1 justify-center">
+            <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'age'"></i>
+            <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'age'"></i>
+            <span class="header-title" (click)="sortPlayers('age')">Age</span>
+          </div>
+          <div class="column is-1 justify-center">
+            <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'height'"></i>
+            <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'height'"></i>
+            <span class="header-title" (click)="sortPlayers('height')">Height</span>
+          </div>
+          <div class="column is-1 justify-center">
+            <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'weight'"></i>
+            <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'weight'"></i>
+            <span class="header-title" (click)="sortPlayers('weight')">Weight</span>
+          </div>
+          <div class="column is-2 justify-center"></div>
         </div>
-        <div class="table-items">
-          <app-spinner *ngIf="fetching"></app-spinner>
-          <app-player-item [player]="player" *ngFor="let player of players" (info)="playersService?.openPlayerDialog($event)"></app-player-item>
-        </div>
+      </div>
+      <div class="table-items">
+        <app-spinner *ngIf="fetching"></app-spinner>
+        <app-player-item [player]="player" *ngFor="let player of players" (info)="playersService?.openPlayerDialog($event)"></app-player-item>
       </div>
     </div>
   </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PlayersService } from '../../shared/players.service';
 import { ActivatedRoute } from '@angular/router';
 import { Player } from '../../shared/player.class';
+import { LineChartSettings } from '../../charts/line-chart.component';
 
 @Component({
   selector: 'app-player-info',
@@ -12,10 +13,26 @@ export class PlayerInfoComponent implements OnInit {
   id: number;
   player: Player;
 
+  stats: { [key: string]: { date: any, value: number }[]};
+
+  greenChart: LineChartSettings = new LineChartSettings();
+  orangeChart: LineChartSettings = new LineChartSettings();
+  redChart: LineChartSettings = new LineChartSettings();
+  blueChart: LineChartSettings = new LineChartSettings();
+  yellowChart: LineChartSettings = new LineChartSettings();
+  blueDarkChart: LineChartSettings = new LineChartSettings();
+
   constructor(
     public playersService: PlayersService,
     public activatedRoute: ActivatedRoute
-  ) { }
+  ) {
+    this.blueChart.lineColor = '#1665D8';
+    this.greenChart.lineColor = '#34AA44';
+    this.redChart.lineColor = '#E6492D';
+    this.orangeChart.lineColor = '#F6AB2F';
+    this.yellowChart.lineColor = '#FACF55';
+    this.blueDarkChart.lineColor = '#007CC2';
+  }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params.id;
@@ -42,8 +59,32 @@ export class PlayerInfoComponent implements OnInit {
           player.notes
         );
 
-        console.log(data);
+        this.calculateStats(data.stats);
       }, err => console.error(err), () => this.fetching = false);
+  }
+
+  private calculateStats(data: any): void {
+    this.stats = {
+      'team': [],
+      'ppg': [],
+      'percent': [],
+      'ft_percent': [],
+      '3fg_percent': [],
+      'rpg': [],
+      'apg': [],
+      'spg': [],
+      'bpg': [],
+      'mpg': []
+    };
+
+    Object.keys(data).forEach(key => {
+      const seasonData = data[key];
+      const date = new Date().setFullYear(Number(key.split('/')[0]));
+
+      Object.keys(seasonData).forEach(entryKey => {
+        this.stats[entryKey].push({ date, value: Number(seasonData[entryKey]) });
+      });
+    });
   }
 
 }

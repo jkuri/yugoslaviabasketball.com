@@ -19,8 +19,8 @@ import { isPlatformServer } from '@angular/common';
 
 export class LineChartSettings {
   constructor(
-    public margin: { top: number, right: number, bottom: number, left: number } = { top: 20, right: 20, bottom: 50, left: 50 },
-    public lineColor: string = '#1665D8',
+    public margin: { top: number, right: number, bottom: number, left: number } = { top: 10, right: 30, bottom: 40, left: 50 },
+    public lineColor: string = '#6B6C6F',
     public showDots: boolean = true,
     public showTooltip: boolean = true
   ) { }
@@ -60,7 +60,7 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
       return;
     }
 
-    this.el = this.elementRef.nativeElement.querySelector('.chart');
+    this.el = this.elementRef.nativeElement.querySelector('.line-chart');
     this.initChart();
 
     this.resizeSubsciption = this.resizeService.onResize$
@@ -118,9 +118,7 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
       .attr('class', 'x axis')
       .call(axisBottom(this.x)
         .tickSize(0)
-        // .tickFormat(timeFormat('%M:%S'))
-        // .tickFormat(timeFormat('%d.%B %Y'))
-        .tickFormat(timeFormat('%d.%b'))
+        .tickFormat(timeFormat('%Y'))
         .tickPadding(8)
       )
       .attr('transform', `translate(0, ${this.height})`);
@@ -162,7 +160,7 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
       .duration(1000)
       .call(axisBottom(this.x)
         .tickSize(0)
-        .tickFormat(timeFormat('%d.%B %Y'))
+        .tickFormat(timeFormat('%Y'))
         .tickPadding(8)
       );
 
@@ -183,7 +181,7 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   private reinitChat(): void {
-    select(this.el).select('.chart > svg').remove();
+    select(this.el).select('.line-chart > svg').remove();
     this.initChart();
   }
 
@@ -199,7 +197,7 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
       .data(this.data)
       .enter().append('circle')
       .attr('class', 'dot')
-      .attr('r', 4)
+      .attr('r', 3)
       .attr('cx', (d: any, i: number) => this.x(d.date))
       .attr('cy', (d: any) => this.y(d.value))
       .attr('fill', '#FFFFFF')
