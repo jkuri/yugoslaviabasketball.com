@@ -13,25 +13,16 @@ export class PlayerInfoComponent implements OnInit {
   id: number;
   player: Player;
 
-  stats: { [key: string]: { date: any, value: number }[]};
+  stats: { [key: string]: { date: any, value: number, notes?: string }[]};
 
-  greenChart: LineChartSettings = new LineChartSettings();
-  orangeChart: LineChartSettings = new LineChartSettings();
-  redChart: LineChartSettings = new LineChartSettings();
-  blueChart: LineChartSettings = new LineChartSettings();
-  yellowChart: LineChartSettings = new LineChartSettings();
-  blueDarkChart: LineChartSettings = new LineChartSettings();
+  percentChartSettings: LineChartSettings = new LineChartSettings();
 
   constructor(
     public playersService: PlayersService,
     public activatedRoute: ActivatedRoute
   ) {
-    this.blueChart.lineColor = '#1665D8';
-    this.greenChart.lineColor = '#34AA44';
-    this.redChart.lineColor = '#E6492D';
-    this.orangeChart.lineColor = '#F6AB2F';
-    this.yellowChart.lineColor = '#FACF55';
-    this.blueDarkChart.lineColor = '#007CC2';
+    this.percentChartSettings.yMinMax.min = 0;
+    this.percentChartSettings.yMinMax.max = 100;
   }
 
   ngOnInit() {
@@ -80,9 +71,10 @@ export class PlayerInfoComponent implements OnInit {
     Object.keys(data).forEach(key => {
       const seasonData = data[key];
       const date = new Date().setFullYear(Number(key.split('/')[0]));
+      const notes = seasonData.team;
 
       Object.keys(seasonData).forEach(entryKey => {
-        this.stats[entryKey].push({ date, value: Number(seasonData[entryKey]) });
+        this.stats[entryKey].push({ date, value: Number(seasonData[entryKey]), notes });
       });
     });
   }

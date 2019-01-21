@@ -10,7 +10,7 @@ import {
   axisLeft,
   axisBottom,
   timeFormat,
-  curveMonotoneX
+  curveLinear
 } from 'd3';
 import { ResizeService } from '../shared/resize.service';
 import { Subscription } from 'rxjs';
@@ -22,7 +22,8 @@ export class LineChartSettings {
     public margin: { top: number, right: number, bottom: number, left: number } = { top: 10, right: 30, bottom: 40, left: 50 },
     public lineColor: string = '#6B6C6F',
     public showDots: boolean = true,
-    public showTooltip: boolean = true
+    public showTooltip: boolean = true,
+    public yMinMax: { min: number, max: number } = { min: null, max: null }
   ) { }
 }
 
@@ -31,7 +32,7 @@ export class LineChartSettings {
   template: `<div class="line-chart"></div>`
 })
 export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() values: { date: Date, value: number }[];
+  @Input() values: { date: Date, value: number, notes?: string }[];
   @Input() settings: LineChartSettings = new LineChartSettings();
 
   el: HTMLElement;
@@ -95,7 +96,7 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
     this.line = line()
       .x((d: any) => this.x(d.date))
       .y((d: any) => this.y(d.value))
-      .curve(curveMonotoneX);
+      .curve(curveLinear);
 
     this.svg = select(this.el).append('svg')
       .attr('width', this.width + this.settings.margin.left + this.settings.margin.right)
@@ -117,7 +118,7 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
     this.xAxis = this.g.append('g')
       .attr('class', 'x axis')
       .call(axisBottom(this.x)
-        .tickSize(0)
+        .tickSize(-this.height)
         .tickFormat(timeFormat('%Y'))
         .tickPadding(8)
       )
@@ -127,7 +128,7 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
       .attr('class', 'y axis')
       .call(axisLeft(this.y)
         .tickSize(-this.width)
-        .ticks(10)
+        .ticks(6)
         .tickPadding(20)
       );
 
@@ -188,7 +189,12 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
   private parseDataAndSetDomains(): void {
     this.data = this.data.map(d => ({ date: new Date(d.date), value: d.value }));
     this.x.domain(extent(this.data, (d: any) => d.date));
-    this.y.domain([min(this.data, (d: any) => d.value), max(this.data, (d: any) => d.value)]);
+
+    if (this.settings.yMinMax.min !== null && this.settings.yMinMax !== null) {
+      this.y.domain([this.settings.yMinMax.min, this.settings.yMinMax.max]);
+    } else {
+      this.y.domain([min(this.data, (d: any) => d.value), max(this.data, (d: any) => d.value)]);
+    }
   }
 
   private drawDots(): void {

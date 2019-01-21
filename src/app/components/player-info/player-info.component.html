@@ -12,75 +12,75 @@
     </div>
     <hr class="mb10" />
   </div>
-  <div class="column is-5">
+  <div class="column is-12">
     <div class="columns is-multiline">
       <div class="column is-3">
         <img [src]="player?.avatar">
       </div>
       <div class="column is-9">
         <div class="columns is-multiline">
-          <div class="column is-12">
+          <div class="column is-12 is-paddingless is-marginless">
             <div class="data-column">
               <span class="column-title">Name</span>
               <span class="column-data">{{ player?.name }}</span>
             </div>
           </div>
-          <div class="column is-12">
+          <div class="column is-12 is-paddingless is-marginless">
             <div class="data-column">
               <span class="column-title">Lastname</span>
               <span class="column-data">{{ player?.lastname }}</span>
             </div>
           </div>
-          <div class="column is-12">
+          <div class="column is-12 is-paddingless is-marginless">
             <div class="data-column">
               <span class="column-title">Birth Date</span>
               <span class="column-data">{{ player?.birthdate | date }}</span>
             </div>
           </div>
-          <div class="column is-12">
+          <div class="column is-12 is-paddingless is-marginless">
             <div class="data-column">
               <span class="column-title">Birth Place</span>
               <span class="column-data">{{ player?.birthplace }}</span>
             </div>
           </div>
-          <div class="column is-12">
+          <div class="column is-12 is-paddingless is-marginless">
             <div class="data-column">
               <span class="column-title">Age</span>
               <span class="column-data is-number">{{ player?.age }}</span>
             </div>
           </div>
-          <div class="column is-12">
+          <div class="column is-12 is-paddingless is-marginless">
             <div class="data-column">
               <span class="column-title">Position</span>
               <span class="column-data is-number is-orange">{{ player?.position }}</span>
             </div>
           </div>
-          <div class="column is-12">
+          <div class="column is-12 is-paddingless is-marginless">
             <div class="data-column">
               <span class="column-title">Height</span>
               <span class="column-data">{{ player?.height }}cm</span>
             </div>
           </div>
-          <div class="column is-12">
+          <div class="column is-12 is-paddingless is-marginless">
             <div class="data-column">
               <span class="column-title">Weight</span>
               <span class="column-data">{{ player?.weight }}kg</span>
             </div>
           </div>
-          <div class="column is-12">
+          <div class="column is-12 is-paddingless is-marginless">
             <div class="data-column">
               <span class="column-title">Number</span>
               <span class="column-data is-number is-green">{{ player?.number === 0 ? '00' :
                 player?.number }}</span>
             </div>
           </div>
-          <div class="column is-12">
+          <div class="column is-12 is-paddingless is-marginless">
             <div class="data-column">
               <span class="column-title">Club</span>
               <span class="column-data">{{ player?.club }}</span>
             </div>
           </div>
-          <div class="column is-12" *ngIf="player?.notes !== ''">
+          <div class="column is-12 is-paddingless is-marginless" *ngIf="player?.notes !== ''">
             <div class="data-column">
               <span class="column-title">Notes</span>
               <span class="column-data">{{ player?.notes }}</span>
@@ -90,43 +90,62 @@
       </div>
     </div>
   </div>
-  <div class="column is-1"></div>
-  <div class="column is-6" *ngIf="stats">
-    <div class="box">
-      <h2>Points Per Game Average</h2>
-      <app-line-chart [values]="stats['ppg']" [settings]="greenChart"></app-line-chart>
-    </div>
-    <div class="box">
-      <h2>Rebounds Per Game Average</h2>
-      <app-line-chart [values]="stats['rpg']"></app-line-chart>
-    </div>
-    <div class="box">
-      <h2>Assists Per Game Average</h2>
-      <app-line-chart [values]="stats['apg']" [settings]="blueDarkChart"></app-line-chart>
-    </div>
-    <div class="box">
-      <h2>Steals Per Game Average</h2>
-      <app-line-chart [values]="stats['spg']" [settings]="redChart"></app-line-chart>
-    </div>
-    <div class="box">
-      <h2>Blocks Per Game Average</h2>
-      <app-line-chart [values]="stats['bpg']" [settings]="orangeChart"></app-line-chart>
-    </div>
-    <div class="box">
-      <h2>Minutes Per Game Average</h2>
-      <app-line-chart [values]="stats['mpg']" [settings]="yellowChart"></app-line-chart>
-    </div>
-    <div class="box">
-      <h2>FG %</h2>
-      <app-line-chart [values]="stats['percent']"></app-line-chart>
-    </div>
-    <div class="box">
-      <h2>FT %</h2>
-      <app-line-chart [values]="stats['ft_percent']"></app-line-chart>
-    </div>
-    <div class="box">
-      <h2>3FG %</h2>
-      <app-line-chart [values]="stats['3fg_percent']"></app-line-chart>
+  <div class="column is-12 mt20" *ngIf="stats">
+    <div class="columns is-multiline">
+      <div class="column is-4">
+        <div class="box">
+          <h2>Points Per Game Average</h2>
+          <app-line-chart [values]="stats['ppg']"></app-line-chart>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="box">
+          <h2>Rebounds Per Game Average</h2>
+          <app-line-chart [values]="stats['rpg']"></app-line-chart>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="box">
+          <h2>Assists Per Game Average</h2>
+          <app-line-chart [values]="stats['apg']"></app-line-chart>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="box">
+          <h2>Steals Per Game Average</h2>
+          <app-line-chart [values]="stats['spg']"></app-line-chart>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="box">
+          <h2>Blocks Per Game Average</h2>
+          <app-line-chart [values]="stats['bpg']"></app-line-chart>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="box">
+          <h2>Minutes Per Game Average</h2>
+          <app-line-chart [values]="stats['mpg']"></app-line-chart>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="box">
+          <h2>FG %</h2>
+          <app-line-chart [values]="stats['percent']" [settings]="percentChartSettings"></app-line-chart>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="box">
+          <h2>FT %</h2>
+          <app-line-chart [values]="stats['ft_percent']" [settings]="percentChartSettings"></app-line-chart>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="box">
+          <h2>3FG %</h2>
+          <app-line-chart [values]="stats['3fg_percent']" [settings]="percentChartSettings"></app-line-chart>
+        </div>
+      </div>
     </div>
   </div>
 </div>
