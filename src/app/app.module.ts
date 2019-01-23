@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -34,7 +34,8 @@ import { PlayerInfoComponent } from './components/player-info/player-info.compon
       { path: 'player/:id', component: PlayerInfoComponent }
     ]),
     TransferHttpCacheModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserTransferStateModule
   ],
   providers: [
     PlayersService,
