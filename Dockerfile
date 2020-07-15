@@ -1,4 +1,4 @@
-FROM node:11-alpine as ui
+FROM node:14-alpine as ui
 
 COPY . /app
 

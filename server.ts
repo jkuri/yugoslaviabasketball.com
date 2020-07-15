@@ -1,104 +1,132 @@
-import 'zone.js/dist/zone-node';
-import { enableProdMode } from '@angular/core';
+import "zone.js/dist/zone-node";
 
-// Express Engine
-import { ngExpressEngine } from '@nguniversal/express-engine';
-// Import module map for lazy loading
-import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import { ngExpressEngine } from "@nguniversal/express-engine";
+import * as express from "express";
+import { join, resolve } from "path";
+import { readFile } from "fs";
 
-import * as express from 'express';
-import { join, resolve } from 'path';
-import { readFile } from 'fs';
+import { AppServerModule } from "./src/main.server";
+import { APP_BASE_HREF } from "@angular/common";
+import { existsSync } from "fs";
 
-// Faster server renders w/ Prod mode (dev mode never needed)
-enableProdMode();
+const DIST_FOLDER = join(process.cwd(), "dist/browser");
 
-// Express server
-const app = express();
+// The Express app is exported so that it can be used by serverless Functions.
+export function app() {
+  const server = express();
+  const indexHtml = existsSync(join(DIST_FOLDER, "index.original.html"))
+    ? "index.original.html"
+    : "index.prod.html";
 
-const PORT = process.env.PORT || 4444;
-const DIST_FOLDER = join(process.cwd(), 'dist');
+  // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
+  server.engine(
+    "html",
+    ngExpressEngine({
+      bootstrap: AppServerModule,
+    })
+  );
 
-// * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./server/main');
+  server.set("view engine", "html");
+  server.set("views", DIST_FOLDER);
 
-// Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
-app.engine('html', ngExpressEngine({
-  bootstrap: AppServerModuleNgFactory,
-  providers: [
-    provideModuleMap(LAZY_MODULE_MAP)
-  ]
-}));
+  server.get("/api/players", (req, res) => {
+    fetchPlayers()
+      .then((data) => res.json(JSON.parse(data)))
+      .catch((err) => res.json({ error: err }));
+  });
 
-app.set('view engine', 'html');
-app.set('views', join(DIST_FOLDER, 'browser'));
+  server.get("/api/players/:id", (req, res) => {
+    fetchPlayer(Number(req.params.id))
+      .then((data) => res.json(data))
+      .catch((err) => res.json({ error: err }));
+  });
 
-// Example Express Rest API endpoints
-// app.get('/api/**', (req, res) => { });
+  // Serve static files from /browser
+  server.get(
+    "*.*",
+    express.static(DIST_FOLDER, {
+      maxAge: "1y",
+    })
+  );
 
-// Server static files from /browser
-app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
-  maxAge: '1y'
-}));
+  // All regular routes use the Universal engine
+  server.get("*", (req, res) => {
+    res.render(indexHtml, {
+      req,
+      providers: [{ provide: APP_BASE_HREF, useValue: req.baseUrl }],
+    });
+  });
 
-app.get('/api/players', (req, res) => {
-  fetchPlayers()
-    .then(data => res.json(JSON.parse(data)))
-    .catch(err => res.json({ error: err }));
-});
+  return server;
+}
 
-app.get('/api/players/:id', (req, res) => {
-  fetchPlayer(req.params.id)
-    .then(data => res.json(data))
-    .catch(err => res.json({ error: err }));
-});
+function run() {
+  const port = process.env.PORT || 4444;
 
-// All regular routes use the Universal engine
-app.get('*', (req, res) => {
-  res.render('index', { req });
-});
-
-// Start up the Node server
-app.listen(PORT, () => {
-  console.log(`Node Express server listening on http://localhost:${PORT}`);
-});
+  // Start up the Node server
+  const server = app();
+  server.listen(port, () => {
+    console.log(`Node Express server listening on http://localhost:${port}`);
+  });
+}
 
 function fetchPlayers(): Promise<any> {
   return new Promise((res, reject) => {
-    readFile(resolve(DIST_FOLDER, '..', 'data', 'players.json'), (err: NodeJS.ErrnoException, data: Buffer) => {
-      if (err) {
-        reject(err);
-      } else {
-        res(data.toString());
+    readFile(
+      resolve(DIST_FOLDER, "..", "..", "data", "players.json"),
+      (err: NodeJS.ErrnoException, data: Buffer) => {
+        if (err) {
+          reject(err);
+        } else {
+          res(data.toString());
+        }
       }
-    });
+    );
   });
 }
 
 function fetchPlayer(id: number): Promise<any> {
   return new Promise((res, reject) => {
-    readFile(resolve(DIST_FOLDER, '..', 'data', 'players.json'), (err: NodeJS.ErrnoException, data: Buffer) => {
-      if (err) {
-        reject(err);
-      } else {
-        const json = JSON.parse(data.toString());
-        const info = json[id - 1];
-        const lastname = info.lastname
-          .toLowerCase()
-          .replace(/[čć]/ig, 'c')
-          .replace(/[š]/ig, 's')
-          .replace(/[đ]/ig, 'd')
-          .replace(/[ž]/ig, 'z');
+    readFile(
+      resolve(DIST_FOLDER, "..", "..", "data", "players.json"),
+      (err: NodeJS.ErrnoException, data: Buffer) => {
+        if (err) {
+          reject(err);
+        } else {
+          const json = JSON.parse(data.toString());
+          const info = json[id - 1];
+          const lastname = info.lastname
+            .toLowerCase()
+            .replace(/[čć]/gi, "c")
+            .replace(/[š]/gi, "s")
+            .replace(/[đ]/gi, "d")
+            .replace(/[ž]/gi, "z");
 
-        readFile(resolve(DIST_FOLDER, '..', 'data', `${lastname}.json`), (e: NodeJS.ErrnoException, d: Buffer) => {
-          if (err) {
-            reject(err);
-          } else {
-            const stats = JSON.parse(d.toString());
-            res({ info, stats });
-          }
-        });
+          readFile(
+            resolve(DIST_FOLDER, "..", "..", "data", `${lastname}.json`),
+            (e: NodeJS.ErrnoException, d: Buffer) => {
+              if (err) {
+                reject(err);
+              } else {
+                const stats = JSON.parse(d.toString());
+                res({ info, stats });
+              }
+            }
+          );
+        }
       }
-    });
+    );
   });
 }
+
+// Webpack will replace 'require' with '__webpack_require__'
+// '__non_webpack_require__' is a proxy to Node 'require'
+// The below code is to ensure that the server is run only when not requiring the bundle.
+declare const __non_webpack_require__: NodeRequire;
+const mainModule = __non_webpack_require__.main;
+const moduleFilename = (mainModule && mainModule.filename) || "";
+if (moduleFilename === __filename || moduleFilename.includes("iisnode")) {
+  run();
+}
+
+export * from "./src/main.server";
