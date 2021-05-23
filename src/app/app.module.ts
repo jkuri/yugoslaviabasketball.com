@@ -29,10 +29,10 @@ import { PlayerInfoComponent } from './components/player-info/player-info.compon
   imports: [
     BrowserModule.withServerTransition({ appId: 'yugoslaviabasketball' }),
     RouterModule.forRoot([
-      { path: '', pathMatch: 'full', redirectTo: 'team' },
-      { path: 'team', component: TeamComponent },
-      { path: 'player/:id', component: PlayerInfoComponent }
-    ]),
+    { path: '', pathMatch: 'full', redirectTo: 'team' },
+    { path: 'team', component: TeamComponent },
+    { path: 'player/:id', component: PlayerInfoComponent }
+], { relativeLinkResolution: 'legacy' }),
     TransferHttpCacheModule,
     HttpClientModule,
     BrowserTransferStateModule
