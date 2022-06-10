@@ -1,9 +1,9 @@
-FROM node:14-alpine as build
+FROM node:18-alpine as build
 
 ENV PORT=4050
 WORKDIR /app
 COPY . /app/
-RUN yarn install && yarn build:ssr
+RUN npm install && npm run build:ssr
 
 FROM alpine:latest
 

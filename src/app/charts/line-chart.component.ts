@@ -1,4 +1,13 @@
-import { Component, OnInit, ElementRef, Input, OnChanges, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnDestroy,
+  Inject,
+  PLATFORM_ID
+} from '@angular/core';
 import {
   scaleTime,
   scaleLinear,
@@ -19,12 +28,17 @@ import { isPlatformServer } from '@angular/common';
 
 export class LineChartSettings {
   constructor(
-    public margin: { top: number, right: number, bottom: number, left: number } = { top: 10, right: 30, bottom: 40, left: 50 },
+    public margin: { top: number; right: number; bottom: number; left: number } = {
+      top: 10,
+      right: 30,
+      bottom: 40,
+      left: 50
+    },
     public lineColor: string = '#6B6C6F',
     public showDots: boolean = true,
     public showTooltip: boolean = true,
-    public yMinMax: { min: number, max: number } = { min: null, max: null }
-  ) { }
+    public yMinMax: { min: number; max: number } = { min: null, max: null }
+  ) {}
 }
 
 @Component({
@@ -32,11 +46,11 @@ export class LineChartSettings {
   template: `<div class="line-chart"></div>`
 })
 export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() values: { date: Date, value: number, notes?: string }[];
+  @Input() values: { date: Date; value: number; notes?: string }[];
   @Input() settings: LineChartSettings = new LineChartSettings();
 
   el: HTMLElement;
-  data: { date: any, value: number }[];
+  data: { date: any; value: number }[];
   width: number;
   height: number;
   x: any;
@@ -54,7 +68,7 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
     public elementRef: ElementRef,
     public resizeService: ResizeService,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) { }
+  ) {}
 
   ngOnInit() {
     if (isPlatformServer(this.platformId)) {
@@ -98,16 +112,19 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
       .y((d: any) => this.y(d.value))
       .curve(curveLinear);
 
-    this.svg = select(this.el).append('svg')
+    this.svg = select(this.el)
+      .append('svg')
       .attr('width', this.width + this.settings.margin.left + this.settings.margin.right)
       .attr('height', this.height + this.settings.margin.top + this.settings.margin.bottom);
 
-    this.g = this.svg.append('g')
+    this.g = this.svg
+      .append('g')
       .attr('transform', `translate(${this.settings.margin.left}, ${this.settings.margin.top})`);
 
     const defs = this.svg.append('defs');
 
-    defs.append('clipPath')
+    defs
+      .append('clipPath')
       .attr('id', 'clip')
       .append('rect')
       .attr('width', this.width)
@@ -115,24 +132,19 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
 
     this.parseDataAndSetDomains();
 
-    this.xAxis = this.g.append('g')
+    this.xAxis = this.g
+      .append('g')
       .attr('class', 'x axis')
-      .call(axisBottom(this.x)
-        .tickSize(-this.height)
-        .tickFormat(timeFormat('%Y'))
-        .tickPadding(8)
-      )
+      .call(axisBottom(this.x).tickSize(-this.height).tickFormat(timeFormat('%Y')).tickPadding(8))
       .attr('transform', `translate(0, ${this.height})`);
 
-    this.yAxis = this.g.append('g')
+    this.yAxis = this.g
+      .append('g')
       .attr('class', 'y axis')
-      .call(axisLeft(this.y)
-        .tickSize(-this.width)
-        .ticks(6)
-        .tickPadding(20)
-      );
+      .call(axisLeft(this.y).tickSize(-this.width).ticks(6).tickPadding(20));
 
-    this.path = this.g.append('path')
+    this.path = this.g
+      .append('path')
       .datum(this.data)
       .attr('class', 'line')
       .attr('d', this.line)
@@ -147,7 +159,8 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
 
     this.gdots.selectAll('.dot').remove();
 
-    this.gdots.selectAll('.dot')
+    this.gdots
+      .selectAll('.dot')
       .transition()
       .duration(500)
       .style('opacity', 0)
@@ -159,20 +172,12 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
     this.xAxis
       .transition()
       .duration(1000)
-      .call(axisBottom(this.x)
-        .tickSize(0)
-        .tickFormat(timeFormat('%Y'))
-        .tickPadding(8)
-      );
+      .call(axisBottom(this.x).tickSize(0).tickFormat(timeFormat('%Y')).tickPadding(8));
 
     this.yAxis
       .transition()
       .duration(1000)
-      .call(axisLeft(this.y)
-        .tickSize(-this.width)
-        .ticks(10)
-        .tickPadding(20)
-      );
+      .call(axisLeft(this.y).tickSize(-this.width).ticks(10).tickPadding(20));
 
     this.path
       .transition()
@@ -201,7 +206,8 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
     this.gdots
       .selectAll('.dot')
       .data(this.data)
-      .enter().append('circle')
+      .enter()
+      .append('circle')
       .attr('class', 'dot')
       .attr('r', 3)
       .attr('cx', (d: any, i: number) => this.x(d.date))
@@ -211,9 +217,6 @@ export class LineChartComponent implements OnInit, OnChanges, OnDestroy {
       .attr('stroke-width', 2)
       .attr('opacity', 0);
 
-    this.gdots.selectAll('.dot')
-      .transition()
-      .duration(750)
-      .style('opacity', 1);
+    this.gdots.selectAll('.dot').transition().duration(750).style('opacity', 1);
   }
 }

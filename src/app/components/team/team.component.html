@@ -45,11 +45,9 @@
             <span class="header-title" (click)="sortPlayers('position')">Position</span>
           </div>
           <div class="column is-2 justify-center">
-            <span class="header-title" (click)="sortPlayers('birthdate')">
-              <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'birthdate'"></i>
-              <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'birthdate'"></i>
-              Birth Date
-            </span>
+            <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'birthdate'"></i>
+            <i class="fas fa-caret-up" *ngIf="order === 'asc' && key === 'birthdate'"></i>
+            <span class="header-title" (click)="sortPlayers('birthdate')">Birth Date</span>
           </div>
           <div class="column is-1 justify-center">
             <i class="fas fa-caret-down" *ngIf="order === 'desc' && key === 'age'"></i>
@@ -71,7 +69,11 @@
       </div>
       <div class="table-items">
         <app-spinner *ngIf="fetching"></app-spinner>
-        <app-player-item [player]="player" *ngFor="let player of players" (info)="playersService?.openPlayerDialog($event)"></app-player-item>
+        <app-player-item
+          [player]="player"
+          *ngFor="let player of players"
+          (info)="playersService?.openPlayerDialog($event)"
+        ></app-player-item>
       </div>
     </div>
   </div>
